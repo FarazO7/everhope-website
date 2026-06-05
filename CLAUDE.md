@@ -200,3 +200,22 @@ accepted first-draft:
    rationale (structural root cause / shared data layer), rather than ranking mechanically.
 6. **Beyond-the-plan enforcement (P1.3, P7.2):** repeatedly differentiated each feature
    from in-flight work so nothing read as incremental.
+
+---
+
+## Phase 9 — Prototype build (front-end only, in `/PROTOTYPE`)
+
+Build log for the clickable prototype demonstrating the two chosen safety features
+(Feature A: oncologist avoid/allergy filter — "filter inward"; Feature B: shareable
+clinical safety sheet — "verify outward"). Appended step-by-step as it was built.
+
+**P9.1 — Study the live site, write DESIGN_NOTES.md.**
+Fetched home + a PDP + a collection page from the rendered site and pulled the theme's
+CSS custom properties from raw HTML (couldn't touch Shopify source). Captured authoritative
+tokens: font **Libre Franklin**; ink `#1C1C1C`; brand crimson `#D72950` (`--button-text-color`);
+green `#27AE60` (reused for the "Cleared for you" safety affordance); amber stars `#F5A623`;
+teal clinical accent; warm borders. Recorded the PDP's real section order
+(Description → Safety & Tolerance → Suggested Use → FAQ → Reviews) and the three
+Safety & Tolerance sub-blocks, which the prototype reproduces structurally rather than
+imports. *Decision:* reproduce, don't import; green is the safety colour, crimson stays the
+single brand accent.

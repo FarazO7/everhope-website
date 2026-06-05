@@ -1,106 +1,202 @@
-# AI Prompt Log
+# CLAUDE.md — AI Prompt Log
 
-## Session 1 — Assignment Understanding
+This file logs the prompts used while building this submission and how the thinking
+evolved across the session. It was updated after each meaningful AI interaction, not
+written at the end. Prompts are recorded faithfully (condensed), each with the intent
+behind it and what it changed. Course-corrections are kept in — they are the point.
 
-Objective:
-Understand the assignment requirements and evaluation criteria.
-
-Prompts:
-
-* Analyze Everhope Oncology TPM assignment.
-* Review funnel data and existing roadmap.
-* Identify constraints and non-allowable roadmap items.
-
-Key Insights:
-
-* Existing roadmap focuses heavily on funnel optimization.
-* New ideas must go beyond checkout, subscriptions, chatbot, PDP improvements, and cart recovery.
-* Prototype must solve a real cancer-patient problem rather than a generic ecommerce problem.
-
-Decision:
-Focus on identifying unmet patient and caregiver needs beyond conversion optimization.
+Tool: Claude. Mode: a blunt, directive "Absolute Mode" was set at the start to force
+high-fidelity reasoning over agreeable tone.
 
 ---
 
-## Session 2 — Store Analysis
+## Phase 0 — Setup, context, constraints
 
-Objective:
-Analyze the Everhope storefront and identify strategic gaps.
+**P0.1** — "Operate in Absolute Mode: eliminate filler, hype, soft asks, transitions;
+blunt directive phrasing; no engagement-optimising behaviour; speak to the underlying
+reasoning; terminate after delivering info."
+*Intent:* strip agreeableness so every answer is reasoning, not reassurance. Set the
+working contract for the whole session.
 
-Prompts:
+**P0.2** — "[Funnel-data screenshot] I'm working on store.everhope.care. Go through the
+site and use the screenshot for context."
+*Intent:* load the real product and the funnel before any analysis. Forced the model to
+read the live site, not assume.
 
-* Review store.everhope.care from a patient perspective.
-* Identify conversion bottlenecks and trust barriers.
-* Explore cancer-specific purchase behavior.
+**P0.3** — "Don't give me answers, just absorb."
+*Intent:* prevent premature solutioning while I fed in context. Repeated deliberately
+through the session as a control on scope.
 
-Key Insights:
+**P0.4 / P0.5 / P0.6** — "[Screenshots] This is what the team has already planned / these
+are the deliverables / understand the evaluation and rules."
+*Intent:* establish the hard constraints — what's off-limits (in-flight work), what must
+be produced (roadmap + prototype + repo), and how it's judged.
 
-* Trust and clinical permission appear to be stronger barriers than ecommerce friction.
-* Caregivers likely represent a significant buyer segment.
-* Supplement purchases are linked to treatment cycles and bloodwork events.
+**P0.7** — "Any clarifying questions before solving?"
+*Intent:* check for blocking unknowns instead of guessing. Surfaced candidate-vs-evaluator
+and repo-existence questions.
 
-Decision:
-Explore opportunities around diagnostic commerce, caregiver journeys, and expert-mediated recommendations.
+**P0.8** — "Give me a sequenced execution plan." → **P0.9** — "Need to do everything in
+one day."
+*Intent:* convert the deliverables into an ordered plan, then compress it to a single-day
+sprint with time blocks.
 
 ---
 
-## Session 3 — Strategic Framing
+## Phase 1 — Strategy
 
-Objective:
-Develop a differentiated product thesis.
+**P1.1** — "Repo created; move to strategic framing." → "[repo URL]"
+*Intent:* anchor every output to a committable file from day one.
 
-Prompts:
+**P1.2** — "[Deep-research doc] Improve the strategic framing based on this research."
+*Intent:* ground the strategy in evidence rather than priors. Shifted the framing to the
+trust-vacuum thesis (50–70% self-supplement without telling their oncologist).
 
-* Compare Everhope's positioning against oncology nutrition competitors.
-* Evaluate distribution models and patient behavior.
-* Incorporate market research into product strategy.
+**P1.3** — "Confirm the strategy takes nothing from the existing roadmap and adds no
+incremental features on top of it."
+*Intent:* enforce the 'beyond the plan' constraint explicitly before going further.
+*Evolution:* forced a differentiation pass — the only adjacency (Prescribe Link vs
+EHR→WhatsApp) was called out and separated.
 
-Key Insights:
+---
 
-* Patients often self-supplement without clinical guidance.
-* Clinical approval is a key purchase blocker.
-* Bloodwork cycles create recurring engagement opportunities.
+## Phase 2 — Roadmap structure
 
-Decision:
-Frame Everhope as a platform that converts clinical events into structured care and commerce journeys.
+**P2.1** — "Move to the roadmap." → **P2.2** — "Fast-paced company: design in week N,
+build+deploy in week N+1, staggered weekly; one MVP feature per slot, no MVP/scaled
+duplication; prioritise with RICE."
+*Intent:* impose the real delivery cadence (pipelined lanes) and a defensible
+prioritisation method, not a generic phase list.
 
-Deep Research
+---
 
-Objective:
-Develop evidence-based understanding of oncology supplement purchasing behavior, customer psychology, competitive landscape, trust mechanisms, and growth opportunities.
+## Phase 3 — Problem definition (the core narrowing)
 
-Research Prompt Themes:
+**P3.1** — "Don't be comprehensive. Just name each problem and why. Brief."
+*Intent:* force problem clarity before solutions.
 
-* Oncology nutrition market landscape
-* Cancer patient and caregiver purchasing behavior
-* Customer psychology and decision-making
-* Competitive intelligence (global and Indian players)
-* Trust and credibility factors
-* Community and social listening research
-* End-to-end customer journey mapping
-* Healthcare ecommerce UX benchmarking
-* Strategic growth opportunities
+**P3.2** — "Which funnel stages are we focusing on? Does solving these actually fix the
+drop?"
+*Intent:* stress-test whether the proposed problems map to the measured leak.
+*Evolution:* exposed that only some ideas touched the funnel; the rest were new channels
+or retention — an honest reframe rather than overclaiming.
 
-Research Outputs Used:
+**P3.3** — "Absorb only: focus on the funnel stages, and within them only the parts NOT
+meeting benchmark."
+*Intent:* hard scope cut. Eliminated PDP→cart (already above the ~5% benchmark) and locked
+focus on Cart→Checkout (43.8%) and Checkout→Purchase (57.7%).
 
-* Market size and growth trends
-* Supplement adoption patterns among cancer patients
-* Caregiver purchase behavior
-* Trust drivers and clinical validation requirements
-* Competitive positioning analysis
-* Journey mapping and opportunity identification
+**P3.4** — "Find more problems for cart→checkout and checkout→purchase, using the cancer-
+patient behaviour research. Problems + why only."
+*Intent:* push past the obvious into research-grounded, audience-specific causes.
 
-Key Insights:
+**P3.5** — "Sessions are also low. Could a referral plan or shareable UGC bring organic
+traffic?" → **P3.6** — "Reframe referral as 'help your friend get 10% off'?"
+*Intent:* open the top-of-funnel question, then pressure-test the mechanism.
+*Evolution:* model pushed back that public referral/UGC fails for a private diagnosis;
+iterated to a private, give-only, gift-framed referral that fits the audience. A clear
+prompt→critique→refinement loop.
 
-* Trust and clinical validation dominate purchase decisions.
-* Caregivers frequently influence or make purchase decisions.
-* Clinical events (consultations, diagnostics, bloodwork) create natural engagement opportunities.
-* Existing competitors focus heavily on products rather than longitudinal patient support.
-* Significant opportunity exists in connecting clinical workflows with commerce experiences.
+**P3.7** — "[2nd deep-research doc] Top-of-funnel is still a problem alongside the two
+checkout stages. Give the underlying problems. Research-grounded. Problems + why."
+*Intent:* go from symptoms to root causes (buyer≠payer, chemo-brain checkout load,
+offline async clinical approval).
 
-Impact on Product Strategy:
+**P3.8** — "Absorb: these are adjunctive supplements, not prescription drugs."
+*Intent:* correct the clinical-approval framing — voluntary interaction-fear clearance,
+not a prescription/regulatory gate. Reshaped problems 6/11.
 
-* Strengthened Diagnostic Commerce thesis.
-* Strengthened Expert-Mediated Distribution thesis.
-* Strengthened Caregiver Commerce thesis.
-* Shifted focus from ecommerce optimization toward clinical-event-driven engagement.
+**P3.9** — "Give the consolidated problems for the stages we're working on."
+*Intent:* lock a canonical, de-duplicated problem set with the supplement-not-drug lens.
+
+**P3.10** — "[3rd deep-research doc, Gemini] Find more problems; focus on the two checkout
+stages."
+*Intent:* a final evidence pass. Added the 86% non-disclosure reality, the can't-package-
+the-question gap, phase-inappropriate-product trust erosion, and volume vs taste as
+separate tolerability axes. Also surfaced honestly that the new doc only *corroborated*
+cart→checkout rather than adding causes.
+
+---
+
+## Phase 4 — Ideation
+
+**P4.1** — "Define the product metrics we're moving and how they tie to product outcome and
+business outcome."
+*Intent:* build the Outcome→Problem→Solution spine before ideating, so every idea has a
+metric to answer to. Established Session→Purchase (2.04%) as the product north star inside
+Revenue = Sessions × conversion × AOV.
+
+**P4.2** — "[Ideation principles + two method URLs] Absorb these before ideating."
+*Intent:* adopt a real ideation discipline — quantity, suspend judgement, novelty over
+relevance, How-Might-We reframing, mind-mapping.
+
+**P4.3** — "Ideate for each problem and map each to the product metric, product outcome,
+and business outcome."
+*Intent:* diverge widely (HMW per problem, multiple ideas each) while keeping the metric
+mapping attached.
+
+**P4.4** — "What is HMW?"
+*Intent:* quick definitional check mid-flow.
+
+---
+
+## Phase 5 — Prioritisation
+
+**P5.1** — "Prioritise the solutions by the funnel gap to solve first, using RICE.
+Impact = change in product metric → business metric; Confidence I analyse; Reach from the
+funnel; Effort I analyse."
+*Intent:* a precise RICE definition with funnel-grounded Reach.
+*Evolution:* produced gap-first tiers (Checkout→Purchase first) with two documented
+overrides where RICE diverged from strategic weight — used the method without being a slave
+to it.
+
+---
+
+## Phase 6 — Solution selection
+
+**P6.1** — "These nine ideas are the ones I like." → **P6.2** — "Add a tenth: upload the
+oncologist's allergy/avoid PDF; recommend only products free of those ingredients."
+*Intent:* converge from the divergent set to a chosen portfolio, then add the inbound
+counterpart to the shareable-safety-sheet idea.
+*Evolution:* model flagged overlap risks (3 of the picks needed differentiation from
+in-flight work) and the parsing/liability guardrails on the PDF-filter idea.
+
+---
+
+## Phase 7 — Roadmap build
+
+**P7.1** — "Build the roadmap using only my solutions."
+*Intent:* turn the chosen ten into the pipelined, RICE-scored, gap-first roadmap with the
+four required fields per item.
+
+**P7.2** — "[Re-stated the deliverable spec] 4-week + 12-week, every item with what/why/
+build/measure, beyond the plan, not incremental, structured doc."
+*Intent:* conformance check. Added an explicit 'how this goes beyond the existing plan'
+section naming the unexplored product spaces and the in-flight work it does not duplicate.
+
+---
+
+## Phase 8 — Prompt log
+
+**P8.1** — "Give me the prompts to add to CLAUDE.md."
+*Intent:* produce this log so the commit history shows how the thinking evolved.
+
+---
+
+## Course-corrections that shaped the output
+
+These are the moments the direction changed — the evidence that this was iterated, not
+accepted first-draft:
+
+1. **Scope narrowing (P3.3):** dropped PDP→cart once the data showed it beats benchmark;
+   refused to "fix" a stage that wasn't failing.
+2. **Honest funnel mapping (P3.2):** admitted most early ideas didn't address the measured
+   drop, instead of claiming they did.
+3. **Referral pivot (P3.5→P3.6):** rejected public referral/UGC for a private diagnosis;
+   landed on private, give-only, gift-framed referral.
+4. **Clinical reframe (P3.8):** corrected approval framing from prescription-gate to
+   voluntary interaction-clearance once told these are supplements, not drugs.
+5. **RICE overrides (P5.1):** kept two solutions above their RICE rank with a written
+   rationale (structural root cause / shared data layer), rather than ranking mechanically.
+6. **Beyond-the-plan enforcement (P1.3, P7.2):** repeatedly differentiated each feature
+   from in-flight work so nothing read as incremental.

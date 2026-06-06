@@ -1,138 +1,116 @@
 # Strategic Framing
 
-## The Market Reality the Funnel Data Doesn't Capture
+## The thesis: a clinical-permission vacuum, not a conversion problem
 
-50–70% of cancer patients are already taking supplements without telling their oncologist.
+Up to 86% of cancer patients do not tell their oncologist they are taking supplements.
+They self-supplement in a vacuum — sourcing from forums, caregivers, and general
+e-commerce — because they cannot get clinical permission fast enough, and the anxiety of
+doing nothing feels worse than the risk of doing something wrong.
 
-This is not a conversion problem. It is a trust vacuum problem.
-Patients are self-supplementing in secret — sourcing from forums, caregivers,
-and general e-commerce — because they cannot get clinical permission fast enough
-and the anxiety of doing nothing feels worse than the risk of doing something wrong.
+These are adjunctive supplements, not prescription drugs. So the blocker is not a
+regulatory or dispensing gate — it is a voluntary fear of interactions with active therapy,
+seeking the oncologist's clearance before ingesting anything alongside treatment. The single
+most common objection is the patient's belief, often from their own doctor, that they should
+"stop all supplements during treatment."
 
-Everhope's real competition is not Esperer or Ensure.
-It is the unguided, dangerous self-supplementation already happening at scale.
+Everhope's real competition is not Esperer or Ensure. It is the unguided, sometimes
+dangerous self-supplementation already happening across most of this patient base. The
+opportunity is to become the safe, cleared alternative to behaviour that is already occurring.
 
-The existing roadmap fixes the store.
-The unexplored opportunity is to become the safe alternative to unsafe behavior
-that is already occurring across 50–70% of this patient base.
+**Where the thesis meets the funnel.** This permission question does not peak while browsing
+— it peaks at the moment of financial commitment. That is precisely why Checkout→Purchase
+abandons at 57.7% and Cart→Checkout at 43.8%, while PDP→cart (8.84%) already beats the ~5%
+benchmark. The strategy's thesis and the funnel's worst leak are the same thing. Resolving
+clinical permission is therefore simultaneously the highest-leverage funnel work and a new
+product space — the two are not in tension.
 
----
+## What this is and is not
 
-## What the Research Confirms
-
-**The #1 objection is the doctor's stop signal.**
-"My oncologist told me to stop all supplements during treatment."
-This single phrase is responsible for more abandonment than checkout friction,
-pricing, or trust badges combined. No PDP overhaul resolves it.
-Only pre-purchase clinical permission — specific, not generic — resolves it.
-
-**The AI chatbot (already planned) is reactive.**
-The user has to ask. Most don't ask. They leave.
-What's needed is proactive clinical clearance embedded in the purchase path —
-not a Q&A widget, but a mechanism that says before the user doubts:
-"This product is safe for your treatment phase. Here is why."
-
-**Caregivers are not a secondary segment.**
-30–40% of actual purchasers are caregivers — spouses, daughters, sons —
-buying for someone else. They are more analytically rigorous than patients,
-more skeptical of marketing, more likely to bounce if the site feels salesy,
-and more likely to pay by UPI or card rather than COD.
-The current architecture speaks entirely to the patient.
-There is no caregiver-mode — no distinct copy, no distinct flow,
-no distinct payment nudge. This is a separate conversion funnel that doesn't exist.
-
-**Vitamin D deficiency is nearly universal in Indian cancer patients.**
-Oncologists routinely recommend D + calcium. B12 and iron follow.
-Bloodwork panels run every 2–4 weeks throughout treatment.
-Each report is a clinical event that maps directly to supplement need.
-This is not a theory. It is a recurring, documented, high-frequency trigger
-that currently connects to zero commerce.
-
-**Esperer's prescription-only model validates B2B2C distribution.**
-Esperer Onco sells only through oncologist or dietitian prescription
-and has hospital partnerships with Apollo and HCG.
-This proves the clinical distribution channel works.
-Everhope's differentiator: Everhope has 25+ in-house experts
-and a DTC store already operational.
-The prescribe-link mechanism makes expert-mediated distribution
-self-serve and scalable — not dependent on hospital procurement cycles.
+This is not CRO, more trust badges, or faster checkout. It is the construction of three
+pieces of product infrastructure the existing plan has not explored: a clinical-clearance
+layer, a caregiver-as-payer architecture, and a symptom-led discovery and trust-acquisition
+model. That this infrastructure also repairs the worst-failing funnel stage is a consequence,
+not the goal.
 
 ---
 
-## The Three Unexplored Pillars
+## Pillar 1 — Clinical-clearance infrastructure (the core)
 
-### 1. Diagnostic Commerce
+Operationalise the oncologist's authority *inside* the buying flow, in both directions:
 
-Cancer patients generate clinical data on a fixed 2–4 week cycle:
-CBC, albumin, ferritin, Vitamin D, B12, liver function.
-None of this data currently connects to purchase intent.
+- **Verify outward** — a shareable clinical safety sheet (ingredients, safety & tolerance,
+  allergens, interaction notes) the patient sends to their own oncologist for a fast yes.
+  *(Roadmap F-D; prototype.)*
+- **Filter inward** — upload the oncologist's allergy/avoid document and the catalog filters
+  itself to products free of those ingredients, erring toward over-restriction when unsure.
+  *(Roadmap F-G; prototype.)*
 
-Flagged Vitamin D → Everhope D3/K2.
-Low albumin → protein powder.
-Suppressed ferritin → iron bisglycinate.
+This is distinct from the planned AI PDP chatbot. The chatbot answers questions; this removes
+the question — through a static artifact and a deterministic, document-driven filter. It also
+encodes ASCO/ESPEN alignment (flagging phase-inappropriate items such as high-dose
+antioxidants during active treatment), which builds credibility with patients and clinicians.
 
-This is not AI diagnosis. It is supplement recommendation
-from flagged biomarkers — exactly what Everhope's oncology nutritionists
-already do in consultations. Digitizing it creates a recurring external trigger
-for purchase that does not depend on the user remembering to return.
+This is where the earlier **Diagnostic Commerce** idea evolved. Rather than biomarker →
+supplement recommendation, the clinical document → clearance path reaches the same end —
+clinical data driving safe commerce — more directly, with no pharmacological literacy
+required of the patient and a tighter line to the permission blocker.
 
-Every bloodwork cycle is a commerce event. None of them are captured today.
+Esperer's prescription-only model proves clinical distribution works; Everhope makes it
+self-serve and document-driven instead of dependent on hospital procurement.
 
-### 2. Expert-Mediated Distribution (Prescribe Link)
+## Pillar 2 — Caregiver-as-payer architecture
 
-The EHR → WhatsApp flow (already planned) serves hospital coordinators.
-That is institutional distribution.
+In this category the buyer and the payer are usually different people. The patient — fatigued,
+under "chemo brain," with diminished executive function — researches and builds the cart.
+The caregiver, who holds the card and the administrative capacity, completes it. Caregivers
+drive an estimated 30–40% of purchases. The current single-user cart has no hand-off, so it
+stalls at exactly the patient→caregiver transfer.
 
-This is different: individual oncologists and oncology nutritionists —
-who have their own patient panels across any clinic, not just Everhope's
-hospital partners — have no tool to recommend Everhope products
-to their patients directly.
+The architecture: the patient locks a cart and forwards a secure cart/payment link to their
+caregiver, who pays via UPI or pay-by-link. *(Roadmap F-C.)* This is distinct from the planned
+EHR→WhatsApp flow, which sends a hospital coordinator's cart to inpatients — here the patient
+delegates to their own family. It also shifts the segment off COD, easing the ₹3,000 cap
+friction at checkout.
 
-The mechanism: an expert logs in, selects products for a specific patient
-profile (cancer type + treatment phase + current medications),
-generates a shareable link. Patient receives a pre-filled cart with
-"Recommended by [Dr. Name] for your treatment" at the top.
+## Pillar 3 — Symptom-led discovery and private trust acquisition
 
-The clinical permission problem is solved upstream of the store.
-PDP abandonment becomes irrelevant for referred patients.
+Patients navigate by treatment toxicity — metallic taste and dysgeusia (up to 76%), mucositis,
+neuropathy, diarrhoea — not by ingredient or physiological category. The catalog should be
+routed and searchable in that language: symptom-mapped categories and a plain-language search
+("chemo mouth," "metallic taste") that returns matched products. *(Roadmap F-A.)* Because
+PDP→cart already beats benchmark, this is a discovery-quality and match play, not a failing-
+rate fix.
 
-Esperer requires a physical prescription. Everhope can make this digital,
-self-serve, and frictionless — one tool that turns every expert's
-consultation into a distribution event.
+For acquisition, the trustworthy sharing in this category is private and altruistic — a
+private diagnosis is not broadcast for a discount. A one-to-one, give-only "help your friend
+get 10% off" invite fits the audience and brings warm traffic that converts above the cold
+baseline. *(Roadmap F-B.)* Public referral and UGC-for-reward were rejected as a poor fit.
 
-### 3. Caregiver Commerce
+## Retention layer (LTV)
 
-Caregivers are:
-- Active on patient forums and WhatsApp groups
-- The primary purchaser in 30–40% of transactions
-- Analytically rigorous — they will research and verify before buying
-- Likely to bounce if the site feels promotional
-- More likely to pay online than via COD
-
-The current site has one architecture: patient-facing.
-
-Caregiver-mode is a distinct conversion funnel:
-different copy (buying for someone else, in crisis),
-different payment nudge (UPI/card, not COD — directly reduces
-the structural checkout abandonment problem),
-different information hierarchy (safety and clinical credibility first,
-product features second),
-optional gift message and delivery notification for the patient.
-
-This is not a UX variation. It is a separate buyer segment
-with a separate psychology and a separate purchase path
-that does not exist on the site today.
+Outside the failing funnel gaps, two features protect lifetime value once the funnel holds:
+a **cycle-aware chemo calendar** that times nudges to the treatment calendar — distinct from
+the planned depletion-timed reorder nudge, which breaks because it ignores treatment holidays
+and hospitalisation *(F-H)* — and a **one-tap reorder** for patients under cognitive load,
+scoped to pair with the calendar *(F-I)*.
 
 ---
 
-## What This Roadmap Is Not
+## Considered and deprioritised
 
-It is not more trust badges.
-It is not faster checkout.
-It is not incremental improvement to what is already in flight.
+- **Diagnostic Commerce (bloodwork → recommendation):** absorbed into the document-driven
+  clearance (F-G). The avoid-list is a lower-literacy, more direct route to the same
+  permission outcome.
+- **Prescribe Link (clinician-generated cart):** the highest-trust acquisition channel, but
+  carries higher build cost and expert-adoption risk; deferred in favour of the clearance
+  infrastructure and caregiver delegation, which attack the failing stages directly.
 
-It is the infrastructure that converts three existing, recurring,
-high-frequency real-world events — bloodwork cycles, oncologist consultations,
-and caregiver purchase decisions — into systematic commerce mechanisms.
+## How the pillars map to outcomes
 
-None of these are currently wired into the store.
+Every pillar moves a leading metric that rolls into **Session-to-Purchase (2.04% today —
+the product north star)**, which, multiplied by Sessions and AOV, is **Revenue (the business
+outcome)**. Clinical-clearance infrastructure and the caregiver architecture attack the two
+failing stages — the highest-leverage gap. Symptom-led discovery and private referral feed
+higher-quality traffic. The retention layer protects LTV. Strategy, roadmap, and prototype
+are one line: the prototype (F-D + F-G) is the clearance infrastructure made concrete, and
+the clearance infrastructure is the thesis made buildable.

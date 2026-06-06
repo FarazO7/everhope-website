@@ -242,3 +242,11 @@ buttons, pill badges, amber star ratings, ₹ price-with-MRP-strikethrough, cert
 plus a sticky nav (with a live avoid-list status chip + cart count), footer, and toast.
 Product art is inline SVG (capsule motif + initials, tinted per category) so the build needs
 no external images and stays self-contained.
+
+**P9.5 — Feature A (filter inward).** Built the avoid-list modal: mock upload → mock-OCR
+parse (with latency) → a **human-in-the-loop review** where the patient sees the extracted
+items in two clearly-labelled layers — *Allergies (structured)* and *Doctor's avoid notes
+(free text)* — and can untick anything before applying. Catalogue then hides unsafe SKUs
+behind a "filtered for your safety" count, badges cleared ones "Cleared for you", and the
+banner lets the reviewer reveal the filtered items (dimmed, with the reason each was cut).
+The PDP shows the same verdict. Copy keeps it a *safety aid*, never a medical claim.

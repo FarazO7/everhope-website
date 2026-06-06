@@ -10,7 +10,7 @@ export default function SafetySheet({ product, open, onClose }) {
   if (!open || !product) return null;
 
   const status = approvalOf(product.id); // none | pending | approved
-  const ref = `EH-${product.id.slice(0, 6).toUpperCase()}-2606`;
+  const ref = `EH-${product.id.replace(/[^a-z0-9]/gi, "").slice(0, 6).toUpperCase()}-2606`;
   const shareUrl = `https://share.everhope.care/sheet/${ref}`;
   const inCart = cart.some((l) => l.id === product.id);
 

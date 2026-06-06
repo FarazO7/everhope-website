@@ -266,3 +266,13 @@ every item is doctor-approved (and none are avoid-list-blocked); the checkout ro
 redirects back to the cart if that gate isn't met, then renders a mocked order-placed payoff
 ("safe, then sold"). Added a `/guide` page that lays out the bidirectional story and links
 into each step so a reviewer can run it in under a minute.
+
+**P9.8 — Verify, document, prep deploy.** Drove the built app in a headless preview and
+confirmed the whole narrative: 5-token avoid-list applied → 3 cleared / 4 filtered (soy,
+curcumin, fish+vitamin-E, green-tea) → cleared PDP → safety sheet → send → simulate
+"APPROVED" → cart unlocks → mocked order ("safe, then sold"). Wrote the prototype README +
+root README and kept `vercel.json`. *Honest note on the deploy step:* the live Vercel deploy
+needs the owner's Vercel account (and the `vercel` CLI / `gh` aren't available in this build
+env), so the repo is made one-click-importable (Root Directory = `PROTOTYPE`, Vite preset)
+rather than fabricating a URL. A zero-dependency `serve-dist.mjs` provides a local shareable
+preview in the meantime.

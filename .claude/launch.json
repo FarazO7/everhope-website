@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "everhope-prototype",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["PROTOTYPE/serve-dist.mjs"],
+      "port": 5173
+    }
+  ]
+}

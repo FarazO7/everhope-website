@@ -226,3 +226,13 @@ config needed for the shareable link), `base: "./"` for relative assets, and Tai
 `@theme` to express the design tokens as utilities. Libre Franklin from Google Fonts.
 No backend, no env, no localStorage — state lives in React memory only. *Guardrail honoured:*
 front-end prototype, everything mocked.
+
+**P9.3 — Mock catalogue + avoid-list engine + store.** Built 7 realistic SKUs across the
+store's symptom collections, each with ingredients/allergens/safety_and_tolerance/avoid_if/
+suggested_use/interaction_notes/tags. *Decision:* deliberately seeded 4 SKUs so a sample
+avoid-list catches them (soy, curcumin, fish+vitamin-E, green-tea/EGCG), leaving 3 cleared —
+so Feature A visibly removes products. The matcher uses a synonym map (soy lecithin, Camellia
+sinensis, mixed tocopherols…) and **errs toward exclusion**: a match marked `uncertain`
+(e.g. an unconfirmable vitamin-E dose) still filters the product out, with copy explaining
+why. The whole store (cart, applied avoid-list, per-product approval) lives in one React
+context — no persistence.

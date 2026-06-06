@@ -236,3 +236,9 @@ sinensis, mixed tocopherols…) and **errs toward exclusion**: a match marked `u
 (e.g. an unconfirmable vitamin-E dose) still filters the product out, with copy explaining
 why. The whole store (cart, applied avoid-list, per-product approval) lives in one React
 context — no persistence.
+
+**P9.4 — Shared UI + chrome.** Reproduced the Everhope look as small primitives (crimson
+buttons, pill badges, amber star ratings, ₹ price-with-MRP-strikethrough, certification row)
+plus a sticky nav (with a live avoid-list status chip + cart count), footer, and toast.
+Product art is inline SVG (capsule motif + initials, tinted per category) so the build needs
+no external images and stays self-contained.

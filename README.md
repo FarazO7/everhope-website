@@ -21,3 +21,30 @@ purchase.
 Upload your oncologist's avoid-list → the shop filters to what's safe for *your* treatment →
 share a clinical safety sheet for sign-off → checkout unlocks. Run it from
 [`PROTOTYPE/`](PROTOTYPE/README.md).
+
+## Live Prototype
+
+Prototype: Clinical Clearance Flow (F-D + F-G)
+
+Live Demo:
+https://everhope-website-topaz.vercel.app
+
+Problem Addressed:
+Cancer patients frequently delay supplement purchases because they are unsure whether products are compatible with their treatment and often seek oncologist confirmation before buying.
+
+Prototype Flow:
+
+1. Upload oncologist avoid-list
+2. Filter incompatible products
+3. Generate clinical safety sheet
+4. Share with oncologist
+5. Receive approval
+6. Complete purchase
+
+Repository Contents:
+
+* Strategic framing
+* Research and opportunity mapping
+* Prioritized roadmap
+* AI prompt log
+* Clickable prototype

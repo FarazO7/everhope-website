@@ -1,5 +1,7 @@
 # Everhope — Supplement-Safety Prototype
 
+**▶ Live demo: https://everhope-website-topaz.vercel.app**
+
 A clickable, **front-end-only** prototype demonstrating two features that resolve the
 biggest checkout-abandonment cause for oncology patients: the unanswered question
 **"is this supplement safe with my treatment?"** Everhope answers it from both directions.

@@ -276,3 +276,8 @@ needs the owner's Vercel account (and the `vercel` CLI / `gh` aren't available i
 env), so the repo is made one-click-importable (Root Directory = `PROTOTYPE`, Vite preset)
 rather than fabricating a URL. A zero-dependency `serve-dist.mjs` provides a local shareable
 preview in the meantime.
+
+**P9.9 — Live deploy.** Owner created the Vercel project and imported the repo with Root
+Directory = `PROTOTYPE`. **Live URL: https://everhope-website-topaz.vercel.app** — verified
+serving the current build (HTTP 200, relative `./assets/` paths resolved, the
+`index-DwU30cXe.js` bundle loads). Recorded the URL in both READMEs.

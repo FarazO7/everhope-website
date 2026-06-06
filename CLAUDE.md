@@ -258,3 +258,11 @@ checkboxes + signature line). Share actions: mock WhatsApp (`wa.me` deep link + 
 link (clipboard), and Download-PDF via the browser print dialog — a print stylesheet isolates
 the sheet so only it prints. Sending saves the cart and shows the async state *"Sheet sent.
 Reply APPROVED to unlock checkout"*, with a demo button to simulate the inbound approval.
+
+**P9.7 — Wire the flow.** Connected the narrative end-to-end: catalogue → upload avoid-list →
+catalogue filters → open a cleared PDP → review-with-doctor sheet → approval unlocks → cart →
+mocked checkout. The cart shows per-line clearance status and **hard-gates checkout** until
+every item is doctor-approved (and none are avoid-list-blocked); the checkout route itself
+redirects back to the cart if that gate isn't met, then renders a mocked order-placed payoff
+("safe, then sold"). Added a `/guide` page that lays out the bidirectional story and links
+into each step so a reviewer can run it in under a minute.

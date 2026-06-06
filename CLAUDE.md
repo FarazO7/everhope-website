@@ -250,3 +250,11 @@ items in two clearly-labelled layers — *Allergies (structured)* and *Doctor's 
 behind a "filtered for your safety" count, badges cleared ones "Cleared for you", and the
 banner lets the reviewer reveal the filtered items (dimmed, with the reason each was cut).
 The PDP shows the same verdict. Copy keeps it a *safety aid*, never a medical claim.
+
+**P9.6 — Feature B (verify outward).** The PDP's primary action "Review with your doctor"
+opens a clean, printable **clinical safety sheet** (letterhead, full ingredients, safety &
+tolerance, allergens, an oncologist-facing interaction-notes box, and a sign-off block with
+checkboxes + signature line). Share actions: mock WhatsApp (`wa.me` deep link + toast), copy
+link (clipboard), and Download-PDF via the browser print dialog — a print stylesheet isolates
+the sheet so only it prints. Sending saves the cart and shows the async state *"Sheet sent.
+Reply APPROVED to unlock checkout"*, with a demo button to simulate the inbound approval.

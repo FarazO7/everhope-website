@@ -219,3 +219,10 @@ teal clinical accent; warm borders. Recorded the PDP's real section order
 Safety & Tolerance sub-blocks, which the prototype reproduces structurally rather than
 imports. *Decision:* reproduce, don't import; green is the safety colour, crimson stays the
 single brand accent.
+
+**P9.2 — Project setup.** Scaffolded React + Vite + Tailwind v4 in `/PROTOTYPE`. Chose
+**HashRouter** so the static build survives a hard refresh on any host (no SPA-rewrite
+config needed for the shareable link), `base: "./"` for relative assets, and Tailwind v4's
+`@theme` to express the design tokens as utilities. Libre Franklin from Google Fonts.
+No backend, no env, no localStorage — state lives in React memory only. *Guardrail honoured:*
+front-end prototype, everything mocked.

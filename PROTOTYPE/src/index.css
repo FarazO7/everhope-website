@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* Everhope design tokens — reproduced from the live store (see ../DESIGN_NOTES.md).
+   In Tailwind v4 these --color-* / --font-* vars auto-generate utilities like
+   bg-brand, text-ink, border-hair, font-sans. */
+@theme {
+  --font-sans: "Libre Franklin", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --color-ink: #1c1c1c;
+  --color-ink-muted: #6b6b6b;
+
+  --color-brand: #d72950; /* crimson — single brand accent / primary CTA */
+  --color-brand-dark: #b91f44;
+
+  --color-safe: #1f9d57; /* green — "Cleared for you" safety affordance */
+  --color-safe-tint: #e8f6ee;
+
+  --color-warn: #c0392b; /* filtered out / not safe */
+  --color-warn-tint: #fbeae8;
+
+  --color-star: #f5a623; /* rating stars */
+
+  --color-teal: #3d6465; /* clinical / doctor-facing secondary accent */
+  --color-teal-tint: #eaf1f1;
+
+  --color-cream: #fbf6f4; /* warm off-white section background */
+  --color-hair: #e5ddda; /* warm hairline border */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Uppercase, letter-spaced eyebrow used for certifications and section labels. */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  font-size: 0.72rem;
+}
+
+/* Print rules so "Download as PDF" (browser print) yields a clean clinical sheet.
+   Classic visibility trick: hide everything, then reveal only the safety sheet, pinned
+   to the top of the page so it prints on its own. */
+@media print {
+  body {
+    background: #ffffff;
+  }
+  body * {
+    visibility: hidden;
+  }
+  .print-sheet,
+  .print-sheet * {
+    visibility: visible;
+  }
+  .print-sheet {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-height: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

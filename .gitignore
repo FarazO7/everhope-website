@@ -1,0 +1,17 @@
+# OS junk
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+*.swp
+
+# Node (the prototype has its own .gitignore too)
+node_modules/
+**/node_modules/
+dist/
+*.log
+
+# Vercel
+.vercel
